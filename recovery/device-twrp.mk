@@ -1,4 +1,4 @@
-DEVICE_PATH := device/$(BOARD_VENDOR)/$(COMMON_FOLDER)
+DEVICE_PATH := device/google/crosshatch
 
 # Inherit from common AOSP config
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
@@ -10,10 +10,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 PRODUCT_PACKAGES += \
     qcom_decrypt \
     qcom_decrypt_fbe
-
-# Apex libraries
-PRODUCT_COPY_FILES += \
-    $(OUT_DIR)/target/product/$(PRODUCT_RELEASE_NAME)/obj/SHARED_LIBRARIES/libandroidicu_intermediates/libandroidicu.so:$(TARGET_COPY_OUT_RECOVERY)/root/system/lib64/libandroidicu.so
 
 # DRV2624 Haptics Waveform
 PRODUCT_COPY_FILES += \
@@ -37,5 +33,5 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)-kernel/videobuf2-memops.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/videobuf2-memops.ko \
     $(DEVICE_PATH)-kernel/videobuf2-vmalloc.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/videobuf2-vmalloc.ko \
     $(DEVICE_PATH)-kernel/heatmap.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/heatmap.ko \
-    $(DEVICE_PATH)-kernel/ftm5.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/ftm5.ko \
+    device/google/crosshatch-kernel/ftm5.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/ftm5.ko \
     $(DEVICE_PATH)-kernel/sec_touch.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1/sec_touch.ko

@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/$(BOARD_VENDOR)/$(COMMON_FOLDER)
+DEVICE_PATH := device/google/crosshatch
 
 # Copy TWRP ramdisk files automatically
 TARGET_RECOVERY_DEVICE_DIRS := $(DEVICE_PATH)
@@ -30,7 +30,6 @@ BOARD_USES_QCOM_FBE_DECRYPTION := true
 # Recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
     android.hardware.vibrator@1.2-impl.crosshatch \
-    libandroidicu \
     libion
 RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/hw/android.hardware.vibrator@1.2-impl.crosshatch.so \
@@ -68,3 +67,4 @@ RECOVERY_BINARY_SOURCE_FILES += $(TARGET_OUT_EXECUTABLES)/strace
 #TARGET_RECOVERY_DEVICE_MODULES += twrpdec
 #TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_RECOVERY_ROOT_OUT)/sbin/twrpdec
 TW_USE_FSCRYPT_POLICY := 1
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
